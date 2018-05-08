@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MovieLibrary</string>
+    <string name="topmenutitle">TopMenu</string>
+    <string name="top_movie">Top Movie</string>
+    <string name="top_tv">Top Tv Series</string>
+    <string name="user_choice">Your List</string>
+    <string name="entry_title">Movie Title</string>
+    <string name="entry_rating">Rating</string>
+    <string name="entry_description">This is a container to hold description of your movie entry</string>
+    <string name="entry_popularity">Popularity</string>
+    <string name="entry_image_description">This view contains a image of the entry you selected.</string>
+    <string name="popularity_text">Popularity</string>
+    <string name="rating_text">User Rating</string>
+</resources>
