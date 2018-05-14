@@ -58,7 +58,6 @@ public class JsonUtil {
                     genres[i] = (int) genryArrey.get(i);
                 }
             }else {
-//                genres = new Integer[0];
             }
         } catch (JSONException e) {
             e.printStackTrace();

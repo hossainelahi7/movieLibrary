@@ -9,10 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <TextView
-            style="@style/TitleText"
-            android:id="@+id/entry_title"
-            android:text="@string/entry_title" />
         <ImageView
             style="@style/Image"
             android:id="@+id/entry_image"
@@ -28,16 +24,14 @@
             <TextView
                 style="@style/Text"
                 android:text="@string/entry_popularity"
-                android:textAlignment="textEnd"
-                android:layout_weight="1"/>
+                android:layout_width="wrap_content"
+                android:textAlignment="textStart"/>
             <TextView
                 style="@style/Text"
                 android:id="@+id/entry_popularity"
                 android:text="@string/entry_popularity"
-                android:textAlignment="textStart"
-                android:layout_weight="1"/>
+                android:textAlignment="textStart" />
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,14 +39,28 @@
             <TextView
                 style="@style/Text"
                 android:text="@string/entry_rating"
-                android:textAlignment="textEnd"
-                android:layout_weight="1"/>
+                android:layout_width="wrap_content"
+                android:textAlignment="textStart"/>
             <TextView
                 style="@style/Text"
                 android:id="@+id/entry_user_rating"
                 android:textAlignment="textStart"
-                android:text="@string/entry_rating"
-                android:layout_weight="1"/>
+                android:text="@string/entry_rating"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/Text"
+                android:text="@string/entry_release_date"
+                android:layout_width="wrap_content"
+                android:textAlignment="textStart"/>
+            <TextView
+                style="@style/Text"
+                android:id="@+id/entry_release_date"
+                android:textAlignment="textStart"
+                android:text="@string/entry_release_date"/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

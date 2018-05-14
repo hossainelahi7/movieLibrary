@@ -30,11 +30,11 @@ public class DetailsActivity extends AppCompatActivity {
     private TVData mTvData;
     private Context mContext;
 
-    private TextView titleView;
     private ImageView imageView;
     private TextView descriptionView;
     private TextView popularityView;
     private TextView reviewView;
+    private TextView releaseDateView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +46,11 @@ public class DetailsActivity extends AppCompatActivity {
             type = intent.getIntExtra(ENTRY_TYPE, 1);
         if (intent.hasExtra(ENTRY_ID))
             id = intent.getIntExtra(ENTRY_ID, 0);
-        titleView = findViewById(R.id.entry_title);
         imageView = findViewById(R.id.entry_image);
         descriptionView = findViewById(R.id.entry_description);
         popularityView = findViewById(R.id.entry_popularity);
         reviewView = findViewById(R.id.entry_user_rating);
+        releaseDateView = findViewById(R.id.entry_release_date);
     }
 
     @Override
@@ -58,23 +58,26 @@ public class DetailsActivity extends AppCompatActivity {
         super.onResume();
         if(type == MainActivity.LoadData.MOVIE_DATA){
             mMovieData = searchMovie(id);
-//        Log.d(mMovieData.title, mMovieData.toString());
-            titleView.setText(mMovieData.title);
+            setTitle(mMovieData.title);
             Picasso.with(mContext).
                     load(MovieDBAPI.getApiImageUrl(mMovieData.posterPath)).
                     into(imageView);
             descriptionView.setText(mMovieData.overView);
             popularityView.setText(mMovieData.popularity.toString());
             reviewView.setText(mMovieData.avgVote.toString());
+            releaseDateView.setText(mMovieData.releaseData.toString());
         }else if(type == MainActivity.LoadData.TV_DATA){
             mTvData = searchTVSeries(id);
-            titleView.setText(mTvData.title);
+            setTitle(mTvData.title);
             Picasso.with(mContext).
                     load(MovieDBAPI.getApiImageUrl(mTvData.posterPath)).
+                    placeholder(R.mipmap.loading_image_place_holder).
+                    error(R.mipmap.error_loading_image).
                     into(imageView);
             descriptionView.setText(mTvData.overView);
             popularityView.setText(mTvData.popularity.toString());
             reviewView.setText(mTvData.avgVote.toString());
+            releaseDateView.setText(mTvData.releaseData.toString());
         }
     }
 

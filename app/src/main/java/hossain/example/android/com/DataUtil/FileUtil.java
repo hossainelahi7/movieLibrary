@@ -18,12 +18,6 @@ import java.io.InputStreamReader;
 public class FileUtil {
 
     public static boolean storeAsJson(@NonNull Context context, @NonNull String fileName,@NonNull String data){
-//        if(context == null
-//                || fileName == null
-//                || fileName.length()<=0
-//                || data == null
-//                || data.length() <= 0)
-//            return false;
         FileOutputStream outputStream;
         Log.d(fileName, "Content:\n "+data);
         try {
@@ -38,10 +32,6 @@ public class FileUtil {
     }
 
     public static String readJson(@NonNull Context context, @NonNull String fileName){
-//        if(context == null
-//                || fileName == null
-//                || fileName.length()<=0)
-//            return null;
         String content;
         FileInputStream inputStream;
         try{
@@ -64,12 +54,7 @@ public class FileUtil {
 
     public static boolean fileExist(Context context, String fileName){
         File file = new File(context.getFilesDir(), fileName);
-        if (file.exists()){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return file.exists();
     }
 
     public static JSONObject parseToJson(String data){

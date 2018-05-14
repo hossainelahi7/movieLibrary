@@ -11,4 +11,5 @@
     <string name="entry_image_description">This view contains a image of the entry you selected.</string>
     <string name="popularity_text">Popularity</string>
     <string name="rating_text">User Rating</string>
+    <string name="entry_release_date">Release Date</string>
 </resources>

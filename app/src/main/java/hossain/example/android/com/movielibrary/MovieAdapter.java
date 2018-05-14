@@ -55,7 +55,11 @@ public class MovieAdapter extends BaseAdapter{
         }else {
             movieImage = (ImageView) convertView;
         }
-        Picasso.with(mContext).load(MovieDBAPI.getApiImageUrl(mBasicData[position].posterPath)).into(movieImage);
+        Picasso.with(mContext).
+                load(MovieDBAPI.getApiImageUrl(mBasicData[position].posterPath))
+                .placeholder(R.mipmap.loading_image_place_holder)
+                .error(R.mipmap.error_loading_image)
+                .into(movieImage);
         movieImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
