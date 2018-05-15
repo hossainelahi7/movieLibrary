@@ -57,7 +57,7 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
         if(type == MainActivity.LoadData.MOVIE_DATA){
-            mMovieData = searchMovie(id);
+            mMovieData = searchPopularMovie(id);
             setTitle(mMovieData.title);
             Picasso.with(mContext).
                     load(MovieDBAPI.getApiImageUrl(mMovieData.posterPath)).
@@ -78,11 +78,21 @@ public class DetailsActivity extends AppCompatActivity {
             popularityView.setText(mTvData.popularity.toString());
             reviewView.setText(mTvData.avgVote.toString());
             releaseDateView.setText(mTvData.releaseData.toString());
+        }else if(type == MainActivity.LoadData.TOP_RATED_MOVIE){
+            mMovieData = searchTopMovie(id);
+            setTitle(mMovieData.title);
+            Picasso.with(mContext).
+                    load(MovieDBAPI.getApiImageUrl(mMovieData.posterPath)).
+                    into(imageView);
+            descriptionView.setText(mMovieData.overView);
+            popularityView.setText(mMovieData.popularity.toString());
+            reviewView.setText(mMovieData.avgVote.toString());
+            releaseDateView.setText(mMovieData.releaseData.toString());
         }
     }
 
 
-    private MovieData searchMovie(int id) {
+    private MovieData searchPopularMovie(int id) {
         JSONObject responseJson = DataSync.readPopularMovieData(mContext);
         try {
             if (responseJson.has("results")
@@ -114,6 +124,26 @@ public class DetailsActivity extends AppCompatActivity {
                     tvData = new TVData(TVJsonList.getJSONObject(i));
                     if (tvData.id == id)
                         return tvData;
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private MovieData searchTopMovie(int id) {
+        JSONObject responseJson = DataSync.readTopRatedMovieData(mContext);
+        try {
+            if (responseJson.has("results")
+                    && responseJson.getJSONArray("results").length() > 0) {
+                JSONArray MovieJsonList = responseJson.getJSONArray("results");
+                int length = MovieJsonList.length();
+                MovieData movieData;
+                for (int i =0; i<length; i++){
+                    movieData = new MovieData(MovieJsonList.getJSONObject(i));
+                    if (movieData.id == id)
+                        return movieData;
                 }
             }
         } catch (JSONException e) {
