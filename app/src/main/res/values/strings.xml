@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">MovieLibrary</string>
     <string name="topmenutitle">TopMenu</string>
-    <string name="top_movie">Top Movie</string>
-    <string name="top_tv">Top Tv Series</string>
-    <string name="user_choice">Your List</string>
+    <string name="top_movie">Popular Movie</string>
+    <string name="top_tv">Popular TV Series</string>
+    <string name="top_rated_movie">Top Rated Movie</string>
     <string name="entry_title">Movie Title</string>
     <string name="entry_rating">Rating</string>
     <string name="entry_description">This is a container to hold description of your movie entry</string>

@@ -15,19 +15,18 @@ import java.util.Scanner;
  */
 
 public class MovieDBAPI {
-    private static final String API_KEY = ""; //TODO ::Add your movieDBapi api key in here
+    private static final String API_KEY = ""; //TODO :: add MovieDBAPIKey here
     private static final String API_LINK = "https://api.themoviedb.org/3";
     private static final String POPULAR_MOVIE_STRING = "/movie/popular";
     private static final String POPULAR_TV_STRING = "/tv/popular";
+    private static final String TOP_RATED_MOVIE_STRING = "/movie/top_rated";
     private static final String API_LINK_POPULAR = "https://api.themoviedb.org/3/movie/popular";
-
     private static final String API_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 
     public static String getPopulerMovieResponse(){
         URL populerURL = buildURL(POPULAR_MOVIE_STRING);
         String response = getURLResponse(populerURL);
-        Log.d("NetworkResponse" , response);
         return response;
     }
 
@@ -40,6 +39,11 @@ public class MovieDBAPI {
     public static String getPopulerTVResponse(){
         URL populerURL = buildURL(POPULAR_TV_STRING);
         return getURLResponse(populerURL);
+    }
+
+    public static String getTopRatedMovieResponse(){
+        URL topRatedURL = buildURL(TOP_RATED_MOVIE_STRING);
+        return getURLResponse(topRatedURL);
     }
 
 
@@ -74,6 +78,7 @@ public class MovieDBAPI {
         }
         catch (MalformedURLException e) {}
         catch (IOException e) {}
+        Log.d("Response", response);
         return response;
     }
 

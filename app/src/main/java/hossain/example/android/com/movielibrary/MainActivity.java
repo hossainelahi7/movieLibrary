@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.top_tv:
                 id = LoadData.TV_DATA;
                 break;
-            case R.id.user_choice:
-                id = LoadData.USER_DATA;
+            case R.id.top_rated_movie:
+                id = LoadData.TOP_RATED_MOVIE;
                 break;
             default:
                 id = LoadData.MOVIE_DATA;
@@ -64,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
     public class LoadData extends AsyncTask<Integer, String, BasicData[]>{
         public static final int MOVIE_DATA = 1;
-        public static final int TV_DATA = 2;
-        public static final int USER_DATA = 3;
+        public static final int TOP_RATED_MOVIE = 2;
+        public static final int TV_DATA = 3;
 
         private int loadDataType= 0;
 
@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(loadDataType == TV_DATA){
                     responseJson = DataSync.readPopularTvData(mContext);
+                }else if (loadDataType == TOP_RATED_MOVIE){
+                    responseJson = DataSync.readTopRatedMovieData(mContext);
                 }else {
                     responseJson = DataSync.readPopularMovieData(mContext);
                 }

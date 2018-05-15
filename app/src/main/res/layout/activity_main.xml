@@ -23,8 +23,8 @@
             android:layout_weight="1"
             android:textAlignment="center"/>
         <TextView
-            android:id="@+id/top_tv"
-            android:text="@string/top_tv"
+            android:id="@+id/top_rated_movie"
+            android:text="@string/top_rated_movie"
             android:onClick="prioritySelected"
             android:textSize="18dp"
             android:textAllCaps="true"
@@ -33,8 +33,8 @@
             android:layout_weight="1"
             android:textAlignment="center"/>
         <TextView
-            android:id="@+id/user_choice"
-            android:text="@string/user_choice"
+            android:id="@+id/top_tv"
+            android:text="@string/top_tv"
             android:onClick="prioritySelected"
             android:textSize="18dp"
             android:textAllCaps="true"
