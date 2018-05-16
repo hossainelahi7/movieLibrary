@@ -5,9 +5,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.GridView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,8 +19,8 @@ import hossain.example.android.com.DataUtil.DataSync;
 public class MainActivity extends AppCompatActivity {
 
     private  Context mContext;
-    private  MovieAdapter mMovieAdapter;
-    private  GridView mMovieView;
+    private  MovieRecyclerAdapter mMovieAdapter;
+    private  RecyclerView mMovieView;
     private  LoadData mLoadData;
 
     @Override
@@ -27,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mContext = this;
         setContentView(R.layout.activity_main);
-        mMovieView = findViewById(R.id.grid_view);
-        mMovieAdapter = new MovieAdapter(this);
+        mMovieView = findViewById(R.id.movie_recycle_view);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
+        mMovieView.setLayoutManager(layoutManager);
+        mMovieAdapter = new MovieRecyclerAdapter();
         mMovieView.setAdapter(mMovieAdapter);
         mLoadData = new LoadData();
     }

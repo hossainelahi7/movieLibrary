@@ -14,6 +14,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "MOVIE_API_KEY", "\"83265a52c0549c882baf9e94cb6a8640\"")
+        }
+        debug {
+            buildConfigField("String", "MOVIE_API_KEY", "\"83265a52c0549c882baf9e94cb6a8640\"")
         }
     }
 }
@@ -26,6 +30,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
 }
 
 repositories {

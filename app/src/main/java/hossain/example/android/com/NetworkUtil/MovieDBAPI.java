@@ -10,12 +10,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
+import hossain.example.android.com.movielibrary.BuildConfig;
+
 /**
  * Created by hossain on 4/25/18.
  */
 
 public class MovieDBAPI {
-    private static final String API_KEY = ""; //TODO :: add MovieDBAPIKey here
+    private static final String API_KEY = BuildConfig.MOVIE_API_KEY;
     private static final String API_LINK = "https://api.themoviedb.org/3";
     private static final String POPULAR_MOVIE_STRING = "/movie/popular";
     private static final String POPULAR_TV_STRING = "/tv/popular";
