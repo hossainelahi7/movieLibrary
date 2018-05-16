@@ -14,10 +14,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "MOVIE_API_KEY", "\"83265a52c0549c882baf9e94cb6a8640\"")
+            buildConfigField("String", "MOVIE_API_KEY", "\"ADDAPIKEYHERE\"")
         }
         debug {
-            buildConfigField("String", "MOVIE_API_KEY", "\"83265a52c0549c882baf9e94cb6a8640\"")
+            buildConfigField("String", "MOVIE_API_KEY", "\"ADDAPIKEYHERE\"")
         }
     }
 }

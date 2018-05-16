@@ -19,9 +19,9 @@ import hossain.example.android.com.movielibrary.BuildConfig;
 public class MovieDBAPI {
     private static final String API_KEY = BuildConfig.MOVIE_API_KEY;
     private static final String API_LINK = "https://api.themoviedb.org/3";
-    private static final String POPULAR_MOVIE_STRING = "/movie/popular";
-    private static final String POPULAR_TV_STRING = "/tv/popular";
-    private static final String TOP_RATED_MOVIE_STRING = "/movie/top_rated";
+    private static final String POPULAR_MOVIE_STRING = API_LINK+"/movie/popular";
+    private static final String POPULAR_TV_STRING = API_LINK+"/tv/popular";
+    private static final String TOP_RATED_MOVIE_STRING = API_LINK+"/movie/top_rated";
     private static final String API_LINK_POPULAR = "https://api.themoviedb.org/3/movie/popular";
     private static final String API_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
@@ -84,8 +84,8 @@ public class MovieDBAPI {
         return response;
     }
 
-    private static URL buildURL(String type){
-        String link = API_LINK+type;
+    private static URL buildURL(String link){
+//        String link = API_LINK+type;
         Uri queryUri = Uri.parse(link).buildUpon()
                 .appendQueryParameter("api_key", API_KEY)
                 .build();
